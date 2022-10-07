@@ -1,6 +1,9 @@
 package br.com.trendy.girls.domain;
 
+import br.com.trendy.girls.interfaceadapter.enums.SexoEnums;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -9,6 +12,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Entity
@@ -26,7 +30,10 @@ public class Cliente implements Serializable {
 
     private String cpf;
 
-    private String dataNascimento;
+    private Date dataNascimento;
 
     private String telefone;
+
+    @Enumerated(EnumType.STRING)
+    private SexoEnums sexo;
 }
